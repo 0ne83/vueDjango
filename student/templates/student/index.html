@@ -1,0 +1,21 @@
+{% extends 'student/base/base.html' %}
+
+{% block title %}Home{% endblock title %}
+{% block nav_title %}{{ stud.username }}{% endblock nav_title %}
+{% block url %}{% url 'main:logoutUser' %}{% endblock url %}
+{% block action %}Logout{% endblock action %}
+
+{% block body %}
+    <div class="container-fluid" style=" height: 80vh;display: flex !important; align-content: center !important; align-items: center !important; justify-content: center !important;">
+        <div >
+            <br>
+            <a href="{% url 'student:exams' %}"
+                    style="border-radius:10px;border: none; background-color:whitesmoke; height: 250px; width: 350px; display: flex; flex-direction: column;  align-items: center; justify-content: center;">
+                <img src="https://skillarc.org/wp-content/uploads/2023/08/exam-svgrepo-com.svg" style="height: 120px; width: 120px; justify-content: center; ">
+                <span style="margin-top:20px; font-family: Oxanium; font-size: 35px;">Assessments</span>
+            </a>
+{#            <a href="{% url 'student:exams' %}" class="btn btn-primary" text-align='center'>Exams</a><br><br><br>#}
+{#            <a href="{% url 'student:results' %}" class="btn btn-primary" text-align='center'>Results</a><br><br><br>#}
+        </div>
+    </div>
+{% endblock body %}

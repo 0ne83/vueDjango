@@ -1,0 +1,99 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Login{% endblock title %}
+
+{% block body %}
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Oxanium&display=swap');
+
+        body {
+            background-color: white;
+        }
+
+        .loginButton {
+            width: 100%;
+            height: 40px;
+            margin: 20px 0px 0px 0px;
+            border-radius: 5px;
+            font-size: 17px;
+            background-color: #AD1F3E;
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .loginText {
+            color: #3D0612;
+            font-family: Oxanium, sans-serif;
+        }
+
+        .login_input_form {
+            width: 100%;
+            height: 40px;
+            border-radius: 0px;
+            border: 1px solid #bababa;
+            padding-left: 10px;
+            font-family: Oxanium;
+            transition: all 0.5s;
+        }
+
+        .login_input_form:focus {
+            border-radius: 5px;
+            box-shadow: 0px 0px 0px 5px #ad1f3e50;
+            border: 1px solid #bababa;
+            outline: 0;
+        }
+
+        .login_container {
+            border: 1px solid #dddddd;
+            width: 100%;
+            height: 200px;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            align-items: flex-start;
+        }
+    </style>
+
+    {% if wrong_cred_message %}
+    <div class="alert alert-danger alert-dismissible" role="alert">
+        <strong>{{ wrong_cred_message }}</strong> : Please enter correct credentials
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endif %}
+
+    <div class="container" style="display: flex; flex-direction: column; justify-content: center; align-items: center; align-content: center; width: 100%; height: 100%">
+        <div class="container" style="width: 600px;">
+            <div
+                    style="background-color: #f9f9f9; border-top: 1px solid #dddddd; border-right: 1px solid #dddddd; border-left: 1px solid #dddddd; width: 100%; padding: 10px 0px 10px 0px; justify-content: center; display: flex; ">
+                
+            </div>
+            <div>
+                <div>
+                    <div   class="login_container">
+                        <form id="login-form" class="form" action="" method="post" style="width: 100%; margin: 0px 10px 0px 10px;">
+                            {% csrf_token %}
+                            <div class=" form-group" style="width: 100%;">
+
+                                <input placeholder="Username" type="text" name="username" id="username" class="login_input_form"
+                                       style="margin-bottom: 10px; margin-top: 20px;">
+
+                                <input placeholder="Password" type='password' name="password" id="password"
+                                       class="login_input_form">
+
+                            </div>
+                            <div align='center' class=" form-group">
+                                <input type="submit" name="submit" class="loginButton" value="Login">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body %}
